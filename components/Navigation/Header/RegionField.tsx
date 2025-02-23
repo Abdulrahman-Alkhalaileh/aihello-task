@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import { MenuItem, SelectProps, Stack } from "@mui/material";
-import StyledSelect from "../Inputs/StyledSelect";
+import StyledSelect from "../../Inputs/StyledSelect";
 import Image from "next/image";
 
 interface RegionType {

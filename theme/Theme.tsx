@@ -10,6 +10,23 @@ const theme = createTheme({
     border: { main: "#E2E8F0" },
     text: { secondary: "#64748B" },
   },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          fontSize: 14,
+          fontWeight: 400,
+          fontFamily: 'inherit',
+          textTransform: 'capitalize',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: 3,
+          borderRadius: 6,
+        },
+      },
+    },
+  },
 });
 
 export const MuiThemeProvider: React.FC<Partial<ThemeProviderProps>> = ({

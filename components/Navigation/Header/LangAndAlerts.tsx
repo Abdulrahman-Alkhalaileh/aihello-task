@@ -1,6 +1,6 @@
 import React from "react";
 import { Avatar, Stack, StackProps } from "@mui/material";
-import NotificationIcon from "../SVG/NotificationIcon";
+import NotificationIcon from "../../SVG/NotificationIcon";
 
 const LangAndAlerts: React.FC<StackProps> = ({ ...props }) => {
   return (

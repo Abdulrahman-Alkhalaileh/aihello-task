@@ -12,7 +12,7 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Header from "../Header/Header";
+import Header from "./Header/Header";
 import { Button, Divider, Stack, Typography } from "@mui/material";
 import AIHelloLogo from "../SVG/AIHelloLogo";
 import { navItems } from "./navItems";

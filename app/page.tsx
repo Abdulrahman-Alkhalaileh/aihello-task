@@ -1,8 +1,17 @@
 import React from "react";
-import { Stack } from "@mui/material";
+import CampaignWrapper from "@/components/Campaigns/CampaignWrapper";
 
 const Page = ({}) => {
-  return <Stack>Campaign</Stack>;
+  return (
+    <>
+      <CampaignWrapper
+        bgcolor="background.paper"
+        borderRadius={3}
+        minHeight="40vh"
+        px={2}
+      />
+    </>
+  );
 };
 
 export default Page;

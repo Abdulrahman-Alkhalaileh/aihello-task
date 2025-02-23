@@ -5,7 +5,7 @@ import UserMenu from "./UserMenu";
 import LangAndAlerts from "./LangAndAlerts";
 import RegionField from "./RegionField";
 import Date from "./DateRange";
-import AIHelloLogo from "../SVG/AIHelloLogo";
+import AIHelloLogo from "../../SVG/AIHelloLogo";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export interface HeaderProps extends StackProps {
