@@ -17,6 +17,7 @@ import { Button, Divider, Stack, Typography } from "@mui/material";
 import AIHelloLogo from "../SVG/AIHelloLogo";
 import { navItems } from "./navItems";
 import { SvgIconComponent } from "@mui/icons-material";
+import { motion } from "framer-motion";
 
 const drawerWidth = 280;
 
@@ -123,96 +124,112 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
           pl={3}
         />
       </AppBar>
-      <Button
-        onClick={handleDrawerClose}
-        size="small"
-        color="error"
-        variant="contained"
-        sx={{
-          position: "absolute",
-          transition: "all ease 0.3s",
-          zIndex: 10000,
-          left: open ? drawerWidth - 15 : 0,
-          opacity: open ? 1 : 0,
-          top: 30,
-          borderRadius: 2,
-          p: 0,
-          px: 0,
-          minWidth: 30,
-          minHeight: 30,
-          pointerEvents: open ? "auto" : "none",
-        }}
-      >
-        {theme.direction === "rtl" ? <ChevronRightIcon /> : <ChevronLeftIcon />}
-      </Button>
-      <Drawer variant="permanent" open={open}>
-        <Stack direction="row" height={93} alignItems="center" pl={3}>
-          <AIHelloLogo />
-        </Stack>
-        <Divider
-          variant="middle"
-          sx={{ mx: 5, border: 1, borderColor: "action.hover" }}
-        />
-        <List sx={{ p: open ? 3 : 0 }}>
-          <Typography
-            variant="caption"
-            fontSize={10}
-            color="text.secondary"
-            pl={1.5}
-            sx={{ opacity: open ? 1 : 0 }}
-          >
-            MENU
-          </Typography>
-          {navItems.map((item) => {
-            const Icon = item.Icon as SvgIconComponent;
-            const isSelected = item.label === "Campaigns";
-            return (
-              <ListItem
-                key={item.label}
-                disablePadding
-                sx={{
-                  display: "block",
-                }}
-              >
-                <ListItemButton
+      <Box position="relative">
+        <Button
+          onClick={handleDrawerClose}
+          size="small"
+          color="error"
+          variant="contained"
+          sx={{
+            position: "fixed",
+            transition: "all ease 0.3s",
+            zIndex: 10000,
+            left: open ? drawerWidth - 15 : 0,
+            opacity: open ? 1 : 0,
+            top: 30,
+            borderRadius: 2,
+            p: 0,
+            px: 0,
+            minWidth: 30,
+            minHeight: 30,
+            pointerEvents: open ? "auto" : "none",
+          }}
+        >
+          {theme.direction === "rtl" ? (
+            <ChevronRightIcon />
+          ) : (
+            <ChevronLeftIcon />
+          )}
+        </Button>
+        <Drawer variant="permanent" open={open}>
+          <Stack direction="row" height={93} alignItems="center" pl={3}>
+            <AIHelloLogo />
+          </Stack>
+          <Divider
+            variant="middle"
+            sx={{ mx: 5, border: 1, borderColor: "action.hover" }}
+          />
+          <List sx={{ p: open ? 3 : 0 }}>
+            <Typography
+              variant="caption"
+              fontSize={10}
+              color="text.secondary"
+              pl={1.5}
+              sx={{ opacity: open ? 1 : 0 }}
+            >
+              MENU
+            </Typography>
+            {navItems.map((item) => {
+              const Icon = item.Icon as SvgIconComponent;
+              const isSelected = item.label === "Campaigns";
+              return (
+                <ListItem
+                  key={item.label}
+                  disablePadding
                   sx={{
-                    minHeight: 43,
-                    px: open ? 1.5 : 2.5,
-                    borderRadius: open ? 2 : 0,
-                    justifyContent: open ? "initial" : "center",
-                    "& .Mui-selected": {
-                      bgcolor: "background.paper",
-                    },
+                    display: "block",
                   }}
-                  selected={isSelected}
                 >
-                  <ListItemIcon
+                  <ListItemButton
                     sx={{
-                      minWidth: 0,
-                      justifyContent: "center",
-                      mr: open ? 2 : "auto",
+                      minHeight: 43,
+                      px: open ? 1.5 : 2.5,
+                      borderRadius: open ? 2 : 0,
+                      justifyContent: open ? "initial" : "center",
+                      "& .Mui-selected": {
+                        bgcolor: "background.paper",
+                      },
                     }}
+                    selected={isSelected}
                   >
-                    <Icon
+                    <ListItemIcon
                       sx={{
+                        minWidth: 0,
+                        justifyContent: "center",
+                        mr: open ? 2 : "auto",
+                      }}
+                    >
+                      <Icon
+                        sx={{
+                          color: isSelected ? "text.primary" : "text.secondary",
+                        }}
+                      />
+                    </ListItemIcon>
+                    <ListItemText
+                      primary={item.label}
+                      sx={{
+                        opacity: open ? 1 : 0,
                         color: isSelected ? "text.primary" : "text.secondary",
                       }}
                     />
-                  </ListItemIcon>
-                  <ListItemText
-                    primary={item.label}
-                    sx={{
-                      opacity: open ? 1 : 0,
-                      color: isSelected ? "text.primary" : "text.secondary",
-                    }}
-                  />
-                </ListItemButton>
-              </ListItem>
-            );
-          })}
-        </List>
-      </Drawer>
-      <Box component="main" sx={{ flexGrow: 1, pt: 13, px: 2, pb: 3 }}>
+                  </ListItemButton>
+                </ListItem>
+              );
+            })}
+          </List>
+        </Drawer>
+      </Box>
+      <Box
+        component={"main"}
+        sx={{
+          flexGrow: 1,
+          pt: 13,
+          px: 2,
+          pb: 3,
+          transition: "none",
+          maxWidth: open ? `calc(100vw - ${drawerWidth}px)` : "auto",
+        }}
+      >
         {children}
       </Box>
     </Box>
