@@ -1,7 +1,8 @@
 import React from "react";
+import { Stack } from "@mui/material";
 
 const Page = ({}) => {
-  return <>page</>;
+  return <Stack>Campaign</Stack>;
 };
 
 export default Page;
