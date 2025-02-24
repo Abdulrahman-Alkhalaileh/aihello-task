@@ -31,7 +31,16 @@ const ProfileView: React.FC<ProfileViewProps> = ({}) => {
 };
 
 const columns: GridColDef<MarketplaceData>[] = [
-  { field: "marketplace", headerName: "Marketplace", width: 200 },
+  {
+    field: "marketplace",
+    headerName: "Marketplace",
+    width: 200,
+    renderCell: ({ row }) => (
+      <Typography mt={2} color="primary.main" fontSize={14}>
+        {row.marketplace}
+      </Typography>
+    ),
+  },
   { field: "shortName", headerName: "Short Name", width: 200 },
   { field: "autoPilot", headerName: "Auto Pilot", width: 200 },
   { field: "dailyBudget", headerName: "Daily Budget", width: 200 },
