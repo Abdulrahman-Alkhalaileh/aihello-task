@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, StackProps, Typography } from "@mui/material";
 import { GridColDef } from "@mui/x-data-grid";
 import {
   profileData,
@@ -11,13 +11,11 @@ import ArrowDropDownCircleIcon from "@mui/icons-material/ArrowDropDownCircle";
 import Controller from "./Controller";
 import CustomDataGrid from "@/components/Tables/CustomDataGrid";
 
-export interface ProfileViewProps {}
-
-const ProfileView: React.FC<ProfileViewProps> = ({}) => {
+const ProfileView: React.FC<StackProps> = ({ ...props }) => {
   const [selectedRows, setSelectedRows] = useState<number[]>([]);
 
   return (
-    <Stack border={1} borderColor="border.main" borderRadius={2}>
+    <Stack border={1} borderColor="border.main" borderRadius={2} {...props}>
       <Controller selectedRows={selectedRows.length} />
       <CustomDataGrid
         rows={profileData}

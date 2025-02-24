@@ -7,9 +7,7 @@ import {
   GridColDef,
 } from "@mui/x-data-grid";
 
-export interface CustomDataGridProps extends DataGridProps {}
-
-const CustomDataGrid: FC<CustomDataGridProps> = (props) => {
+const CustomDataGrid: FC<DataGridProps> = (props) => {
   return (
     <DataGrid
       checkboxSelection

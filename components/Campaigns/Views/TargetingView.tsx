@@ -1,9 +1,7 @@
 "use client";
 import React from "react";
 
-export interface TargetingViewProps {}
-
-const TargetingView: React.FC<TargetingViewProps> = ({}) => {
+const TargetingView = ({}) => {
   return <h1>Targeting View</h1>;
 };
 

@@ -4,9 +4,7 @@ import { MenuItem, Select, Stack, StackProps, Typography } from "@mui/material";
 import { LineChart } from "@mui/x-charts";
 import { monthlyDataset, weeklyDataset, yearlyDataset } from "./campaignData";
 
-export interface CampaignChartProps extends StackProps {}
-
-const CampaignChart: React.FC<CampaignChartProps> = ({ ...props }) => {
+const CampaignChart: React.FC<StackProps> = ({ ...props }) => {
   const [view, setView] = useState("weekly");
 
   // Determine the dataset based on the selected view

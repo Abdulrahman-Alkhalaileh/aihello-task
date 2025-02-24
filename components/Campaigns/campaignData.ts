@@ -1,4 +1,3 @@
-import { Stack } from "@mui/material";
 import { BasicNavItemType } from "../Navigation/BasicNav";
 import ProfileView from "./Views/Profile/ProfileView";
 import CampaignView from "./Views/CampaignView";

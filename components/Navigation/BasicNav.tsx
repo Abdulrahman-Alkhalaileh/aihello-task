@@ -15,7 +15,6 @@ export interface BasicNavProps extends StackProps {
 }
 
 const BasicNav: React.FC<BasicNavProps> = ({
-  children,
   setItems,
   items,
   ...props
