@@ -25,6 +25,7 @@ const CampaignChart: React.FC<StackProps> = ({ ...props }) => {
           value={view}
           onChange={(e) => setView(e.target.value)}
           size="small"
+          MenuProps={{ disableScrollLock: true }}
         >
           <MenuItem value="weekly">Weekly</MenuItem>
           <MenuItem value="monthly">Monthly</MenuItem>
