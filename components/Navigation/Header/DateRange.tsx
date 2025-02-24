@@ -40,7 +40,7 @@ export default function DateRange() {
           gap: 1,
         }}
       >
-        <Typography fontSize={14} fontWeight={500}>
+        <Typography fontSize={14} fontWeight={500} whiteSpace='nowrap'>
           {format(value, "MMM dd, yyyy")} - {format(value, "MMM dd, yyyy")}
         </Typography>
         <Divider

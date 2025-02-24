@@ -31,6 +31,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ avatarProps, ...props }) => {
           color="text.secondary"
           fontWeight={500}
           lineHeight={1.2}
+          whiteSpace='nowrap'
         >
           Brand Manager
         </Typography>
