@@ -7,6 +7,7 @@ import RegionField from "./RegionField";
 import Date from "./DateRange";
 import AIHelloLogo from "../../SVG/AIHelloLogo";
 import MenuIcon from "@mui/icons-material/Menu";
+import { motion } from "framer-motion";
 
 export interface HeaderProps extends StackProps {
   handleSideBarOpen: () => void;
@@ -35,21 +36,24 @@ const Header: React.FC<HeaderProps> = ({
         borderColor="border.main"
         {...props}
       >
-        <Stack direction="row" alignItems="center" gap={2}>
-          {!sideBarOpen && (
-            <>
-              <IconButton
-                aria-label="open drawer"
-                onClick={handleSideBarOpen}
-                edge="start"
-                sx={[sideBarOpen && { display: "none" }]}
-              >
-                <MenuIcon />
-              </IconButton>
-              <AIHelloLogo />
-            </>
-          )}
-        </Stack>
+        <motion.div
+          animate={{
+            width: sideBarOpen ? 0 : "auto",
+            opacity: sideBarOpen ? 0 : 1,
+          }}
+        >
+          <Stack direction="row" alignItems="center" gap={2}>
+            <IconButton
+              aria-label="open drawer"
+              onClick={handleSideBarOpen}
+              edge="start"
+              sx={[sideBarOpen && { display: "none" }]}
+            >
+              <MenuIcon />
+            </IconButton>
+            <AIHelloLogo />
+          </Stack>
+        </motion.div>
         <Stack direction="row" alignItems="center" gap={4}>
           <Stack direction="row" alignItems="center" gap={3}>
             <Button
@@ -61,6 +65,7 @@ const Header: React.FC<HeaderProps> = ({
                 borderRadius: 2,
                 fontSize: 14,
                 height: 45,
+                whiteSpace: "nowrap",
               }}
             >
               Get Specialist Help
