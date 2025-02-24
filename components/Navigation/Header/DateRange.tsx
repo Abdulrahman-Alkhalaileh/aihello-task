@@ -58,6 +58,7 @@ export default function DateRange() {
         MenuListProps={{
           "aria-labelledby": "basic-button",
         }}
+        disableScrollLock
       >
         <DateProvider>
           <DateCalendar

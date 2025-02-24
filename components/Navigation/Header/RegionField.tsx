@@ -43,6 +43,7 @@ const RegionField: React.FC<SelectProps> = ({ ...props }) => {
       onChange={(event) => {
         setValue(event.target.value as string);
       }}
+      MenuProps={{ disableScrollLock: true }}
       {...props}
     >
       {regions.map((region) => (
