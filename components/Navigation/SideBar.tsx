@@ -5,7 +5,6 @@ import Box from "@mui/material/Box";
 import MuiDrawer from "@mui/material/Drawer";
 import { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
 import List from "@mui/material/List";
-import CssBaseline from "@mui/material/CssBaseline";
 import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
 import ChevronRightIcon from "@mui/icons-material/ChevronRight";
 import ListItem from "@mui/material/ListItem";
@@ -17,7 +16,6 @@ import { Button, Divider, Stack, Typography } from "@mui/material";
 import AIHelloLogo from "../SVG/AIHelloLogo";
 import { navItems } from "./navItems";
 import { SvgIconComponent } from "@mui/icons-material";
-import { motion } from "framer-motion";
 
 const drawerWidth = 280;
 
@@ -116,7 +114,6 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <AppBar position="fixed" open={open}>
         <Header
           handleSideBarOpen={handleDrawerOpen}
@@ -159,13 +156,13 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
             variant="middle"
             sx={{ mx: 5, border: 1, borderColor: "action.hover" }}
           />
-          <List sx={{ p: open ? 3 : 0 }}>
+          <List sx={{ p: open ? 3 : 0, transition: "all ease 0.3s" }}>
             <Typography
               variant="caption"
               fontSize={10}
               color="text.secondary"
               pl={1.5}
-              sx={{ opacity: open ? 1 : 0 }}
+              sx={{ opacity: open ? 1 : 0, transition: "inherit" }}
             >
               MENU
             </Typography>
@@ -178,6 +175,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                   disablePadding
                   sx={{
                     display: "block",
+                    transition: "inherit",
                   }}
                 >
                   <ListItemButton
@@ -189,6 +187,7 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
                       "& .Mui-selected": {
                         bgcolor: "background.paper",
                       },
+                      transition: "inherit",
                     }}
                     selected={isSelected}
                   >
@@ -227,7 +226,10 @@ const SideBar: React.FC<SideBarProps> = ({ children }) => {
           px: 2,
           pb: 3,
           transition: "none",
-          maxWidth: open ? `calc(100vw - ${drawerWidth}px)` : "auto",
+          overflowX:'hidden',
+          maxWidth: open
+            ? `calc(100dvw - ${drawerWidth}px)`
+            : "calc(100dvw - 64.2px)",
         }}
       >
         {children}
