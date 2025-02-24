@@ -8,6 +8,10 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     border: Partial<PaletteColor>;
   }
+
+  interface BreakpointOverrides {
+    xxl: true;
+  }
 }
 
 declare module "@mui/material/Button" {
